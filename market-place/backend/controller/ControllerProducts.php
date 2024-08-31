@@ -1,12 +1,15 @@
 <?php
-require_once "../coneccion/Coneccion.php";
-require_once "../objects/Producto.php";
-class ControllerProducto{
+//require_once "C:\Users\Usuario\Desktop\Teoria de sistemas 1\hola-mundo-php\market-place\backend\coneccion\Coneccion.php";
+require_once __DIR__ . '/../coneccion/Coneccion.php';
+//require_once "C:\Users\Usuario\Desktop\Teoria de sistemas 1\hola-mundo-php\market-place\backend\objects\Producto.php";
+require_once __DIR__ . '/../objects/Producto.php';
+class ControllerProducts{
+    private $connection;
     private $conn;
-    private $coneccion;
+
     public function __construct(){
-        $this->coneccion = new Coneccion();
-        $this->conn = $this->coneccion->getconexion();
+        $this->connection = new Coneccion();
+        $this->conn = $this->connection->getconexion();
     }
 
     public function getProductosByUser($user){
@@ -14,12 +17,11 @@ class ControllerProducto{
 
         $sql = "SELECT * FROM productos WHERE usuario = ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("s", $usuario);
+        $stmt->bind_param("s", $user);
         $stmt->execute();
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
-            // output data of each row
             while ($row = $result->fetch_assoc()) {
                 $aux = new Producto(
                     $row['id'],
@@ -36,4 +38,5 @@ class ControllerProducto{
         }
         return $list;
     }
+
 }

@@ -17,6 +17,7 @@ case 'POST':
         $_SESSION['user'] = serialize($user);
         header('Location: ../../frontend/vista/cliente/ProductosPublicados.php');
     }else{
+
         header('Location: ../../frontend/vista/Login.php');
     }
 
@@ -26,7 +27,8 @@ case 'GET':
     switch ($accion) {
         case 'salir';
             header('Location: ../../index.php');
-            session_destroy();
+            session_start();
+            unset($_SESSION['user']);
         break;
     }
     echo 'hola GET';

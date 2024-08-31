@@ -1,16 +1,19 @@
 <?php
-require_once "../../../backend/controller/Products.php";
+require_once "../../../backend/controller/ControllerProducts.php";
 require_once "../../../backend/objects/Producto.php";
 require_once "../../../backend/objects/Usuario.php";
 
 session_start();
 
-$controllerProducto = new Products();
+$controllerProducto = new ControllerProducts();
 $user = isset($_SESSION['user']) ? unserialize($_SESSION['user']) : new Usuario("","","","","","","","");
     if ($user && is_object($user)) {
         $username = $user->getUsername();
         $list = $controllerProducto->getProductosByUser($username);
         //unset($_SESSION['user']);
+    }
+    if ($user->getUsername() == ''){
+        header('Location: ../../index.php');
     }
 
 ?>
@@ -33,7 +36,7 @@ $user = isset($_SESSION['user']) ? unserialize($_SESSION['user']) : new Usuario(
     <section>
         <div class="container-component">
             <h1> productos publicados</h1>
-            <table id="customers">
+            <table id="tables">
                 <tr>
                     <th>CODIGO</th>
                     <th>Nombre</th>

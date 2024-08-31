@@ -16,6 +16,12 @@ $cliente = isset($_SESSION['cliente']) ? unserialize($_SESSION['cliente']) : new
         unset($_SESSION['cliente']);
     }
 */
+
+require_once __DIR__. "/../../../backend/controller/ControllerCategoria.php";
+require_once __DIR__. "/../../../backend/objects/Categoria.php";
+
+$controller = new ControllerCategoria();
+$listCat = $controller->getCategorias();
 ?>
 
 <!DOCTYPE html>
@@ -35,28 +41,35 @@ $cliente = isset($_SESSION['cliente']) ? unserialize($_SESSION['cliente']) : new
     ?>
     <section>
         <div class="container">
-            <h1> cliente</h1>
-            <form method="POST" action="../../api/model/ControllerPeticionCliente.php">
+            <h1> Registro de producto</h1>
+            <form method="POST" action="../../../backend/controller/PeticionUsers.php">
                 <input type="hidden" name="id" value="" />
 
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" value="" name="nombre" required>
 
-                <label for="apellido">Apellido:</label>
-                <input type="text" id="apellido" value="" name="apellido" required>
+                <label for="descripcion">Descripción:</label>
+                <input type="text" id="descripcion" value="" name="descripcion" required>
 
-                <label for="correo">Correo:</label>
-                <input type="email" id="correo" value="" name="correo" required>
+                <label for="precio">Precio:</label>
+                <input type="number" id="precio" value="" name="precio" required min="0">
 
-                <label for="telefono">Telefono:</label>
-                <input type="tel" id="telefono" value="" name="telefono" required minlength="8" maxlength="8">
+                <label for="unidades">Unidades:</label>
+                <input type="number" id="unidades" value="" name="unidades" required min="0">
 
-                <label for="saldo">Saldo:</label>
-                <input type="number" id="saldo" value="" name="saldo" required>
+                <label for="categoria">Categoría:</label>
+                <select id="categoria" name="categoria">
+                    <?php foreach($listCat as $cat): ?>
+                        <option value="<?= $cat->getId(); ?>"><?= $cat->getNombre(); ?></option>
+                    <?php endforeach; ?>
+                </select>
+
+                <label for="ruta">Ruta imagen:</label>
+                <input type="text" id="ruta" value="" name="ruta" required>
 
                 <button type="submit" class="btn-green" style="margin-bottom: 10px">Guardar cambios</button>
                 <div style="text-align: center">
-                    <a class="btn btn-warning" href="../../index.php">Regresar</a>
+                    <a class="btn btn-warning" href="ProductosPublicados.php">Regresar</a>
                 </div>
             </form>
         </div>
