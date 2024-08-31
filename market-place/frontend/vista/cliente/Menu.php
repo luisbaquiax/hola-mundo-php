@@ -3,7 +3,7 @@
     <div class="container-navbar">
         <a href="#" class="brand">Intercambios S.A.</a>
         <ul class="nav-links">
-            <li><a href="RegistroProducto.php">Registrar producto</a></li>
+            <li><a href="RegisterProducts.php" onclick="">Registrar producto</a></li>
             <li><a href="ProductosPublicados.php">Productos</a></li>
             <li class="dropdown">
                 <a href="#services" class="dropbtn">Reporte</a>
