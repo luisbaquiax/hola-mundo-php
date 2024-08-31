@@ -12,7 +12,7 @@
                     <a href="#service2">Productos mas vendidos</a>
                 </div>
             </li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="Tienda.php">Tienda</a></li>
         </ul>
         <a href="../../../backend/controller/PeticionUsers.php?accion=salir" class="btn btn-close-dark" style="width: 100px">Cerrar sesión</a>
     </div>

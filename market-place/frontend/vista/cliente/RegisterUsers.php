@@ -48,7 +48,7 @@ $cliente = isset($_SESSION['cliente']) ? unserialize($_SESSION['cliente']) : new
         <label for="saldo">Saldo:</label>
         <input type="number" id="saldo" value="<?php echo $cliente ? $cliente->getSaldo() : 0; ?>" name="saldo" required>
 
-        <button type="submit" class="btn-primario" style="margin-bottom: 10px">Guardar cambios</button>
+        <button type="submit" class="btn-primary" style="margin-bottom: 10px">Guardar cambios</button>
         <div style="text-align: center">
             <a class="btn btn-warning" href="../../index.php">Regresar</a>
         </div>

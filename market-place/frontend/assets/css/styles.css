@@ -32,11 +32,11 @@ colorea don fondo blanco gris las filas pares
     cursor: pointer;
     text-decoration: none;
 }
-.btn-primario{
+.btn-primary{
     background-color: #1762dd;
 }
 
-.btn-primario:hover{
+.btn-primary:hover{
     background-color: #216ce7;
 }
 

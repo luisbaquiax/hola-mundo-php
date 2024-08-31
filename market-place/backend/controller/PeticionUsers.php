@@ -41,9 +41,9 @@ switch ($method) {
 
                 $producto = new Producto($id, $nombre, $descripcion, $precio, $unidades, $categoria, $usuario, $ruta);
                 try {
-                    if($producto->getId() == 0){
+                    if ($producto->getId() == 0) {
                         $controllerProducto->insertProducto($producto);
-                    }else{
+                    } else {
                         $controllerProducto->updateProducto($producto);
                     }
                 } catch (Exception $e) {
@@ -70,6 +70,8 @@ switch ($method) {
                 session_start();
                 $_SESSION['producto'] = serialize($actualizar);
                 header('Location: ../../frontend/vista/cliente/RegisterProducts.php');
+                break;
+            case 'comprar';
                 break;
         }
         break;

@@ -26,18 +26,8 @@ $controller = new ControllerCategoria();
 $listCat = $controller->getCategorias();
 
 session_start();
-
 $producto = isset($_SESSION['producto']) ? unserialize($_SESSION['producto']) : $producto = new Producto(0,'','','','','','','');
 if ($producto && is_object($producto)) {
-    $id = $producto->getId();
-    $nombre = $producto->getNombre();
-    $descripcion = $producto->getDescripcion();
-    $precio = $producto->getPrecio();
-    $unidades = $producto->getUnidades();
-    $categoria = $producto->getCategoria();
-    $usuario = $producto->getUsuario();
-    $ruta = $producto->getRuta();
-    $edicion = "Editar";
     unset($_SESSION['producto']);
 }
 
@@ -69,7 +59,7 @@ include "Menu.php";
 ?>
 <section>
     <div class="container">
-        <h1> Registro de producto</h1>
+        <h1> Formulario de producto</h1>
         <form method="POST" action="../../../backend/controller/PeticionUsers.php?accion=registrarProducto">
             <input type="hidden" name="usuario" value="<?= $user->getUsername()?>" />
             <input type="hidden" name="id_producto" value="<?php echo $producto ? $producto->getId() : 0; ?>" />

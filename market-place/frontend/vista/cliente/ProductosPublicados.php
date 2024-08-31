@@ -9,7 +9,7 @@ $controllerProducto = new ControllerProducts();
 $user = isset($_SESSION['user']) ? unserialize($_SESSION['user']) : new Usuario("", "", "", "", "", "", "", "");
 if ($user && is_object($user)) {
     $username = $user->getUsername();
-    $list = $controllerProducto->getProductosByUser($username);
+    $list = $controllerProducto->getProductosByUser($username, ControllerProducts::GET_PRODUCTS_BY_USER_MEJORADO);
     //unset($_SESSION['user']);
 }
 if ($user->getUsername() == '') {
@@ -35,7 +35,7 @@ include "Menu.php";
 ?>
 <section>
     <div class="container-component">
-        <h1> productos publicados</h1>
+        <h1> Productos publicados</h1>
         <table id="tables">
             <tr>
                 <th>CODIGO</th>
@@ -60,7 +60,7 @@ include "Menu.php";
                     </td>
                     <td>
                         <a href="../../../backend/controller/PeticionUsers.php?accion=actualizarProducto&&id=<?= $producto->getId() ?>"
-                           class="btn btn-primario">Editar
+                           class="btn btn-primary">Editar
                         </a>
                     </td>
                 </tr>

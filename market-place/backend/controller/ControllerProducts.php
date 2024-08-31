@@ -6,6 +6,20 @@ require_once __DIR__ . '/../objects/Producto.php';
 
 class ControllerProducts
 {
+    const GET_PRODUCTS_BY_USER = "SELECT * FROM productos WHERE usuario = ?";
+    const GET_PRODUCTS_BY_USER_MEJORADO = "
+         select p.id, p.nombre, p.descripcion, p.precio, p.unidades, c.nombre as id_categoria, p.usuario, p.ruta_imagen
+         from productos p
+         inner join categorias c on p.id_categoria = c.id
+         where p.usuario = ? order by id asc
+         ";
+    const GET_PRODUCTS = "SELECT * FROM productos WHERE usuario != ?";
+    const GET_PRODUCTS_NOMBRE = '
+    select p.id, p.nombre, p.descripcion, p.precio, p.unidades, c.nombre as id_categoria, p.usuario, p.ruta_imagen
+         from productos p
+         inner join categorias c on p.id_categoria = c.id
+         where p.usuario != ? order by id asc
+         ';
     private $connection;
     private $conn;
 
@@ -39,11 +53,11 @@ class ControllerProducts
         }
     }
 
-    public function getProductosByUser($user)
+    public function getProductosByUser($user, $sentencia)
     {
         $list = array();
 
-        $sql = "SELECT * FROM productos WHERE usuario = ?";
+        $sql = $sentencia;
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("s", $user);
         $stmt->execute();

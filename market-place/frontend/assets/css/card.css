@@ -1,0 +1,40 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    /*width: 300px;*/
+    overflow: hidden;
+}
+.card-header {
+    background-color: #f8f9fa;
+    padding: 10px;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+.card-body {
+    padding: 15px;
+    font-size: 1em;
+}
+.card-footer {
+    background-color: #f8f9fa;
+    padding: 10px;
+    text-align: right;
+}
+.width-300{
+    width: 300px;
+}
+
+.width-400{
+    width: 400px;
+}
+
+.width-500{
+    width: 500px;
+}
+
+.inline-block{
+    display: inline-block;
+    width: 300px;
+    border: 3px solid #73AD21;
+}
