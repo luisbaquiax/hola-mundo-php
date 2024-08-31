@@ -15,7 +15,7 @@
     <h1 class="text-center"><strong>Intercambios S.A.</strong></h1>
     <hr>
     <h2 class="text-center">Iniciar Sesión</h2>
-    <form action="../../backend/controller/PeticionUsers.php" method="POST">
+    <form action="../../backend/controller/PeticionUsers.php?accion=iniciarSesion" method="POST">
         <div class="input-group">
             <label for="username" class="login-label">Nombre de usuario:</label>
             <input type="text" id="username" class="login-input" name="username" required maxlength="45">

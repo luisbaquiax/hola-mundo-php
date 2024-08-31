@@ -19,9 +19,22 @@ $cliente = isset($_SESSION['cliente']) ? unserialize($_SESSION['cliente']) : new
 
 require_once __DIR__. "/../../../backend/controller/ControllerCategoria.php";
 require_once __DIR__. "/../../../backend/objects/Categoria.php";
+require_once __DIR__. "/../../../backend/objects/Usuario.php";
 
 $controller = new ControllerCategoria();
 $listCat = $controller->getCategorias();
+
+session_start();
+
+if (isset($_SESSION['user'])) {
+    $user = unserialize($_SESSION['user']);
+    echo $user->getUsername();
+    echo "<script type='text/javascript'>console.log('existe usuario');</script>";
+}else{
+    header("Location: ../../login.php");
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -42,9 +55,8 @@ $listCat = $controller->getCategorias();
     <section>
         <div class="container">
             <h1> Registro de producto</h1>
-            <form method="POST" action="../../../backend/controller/PeticionUsers.php">
-                <input type="hidden" name="id" value="" />
-
+            <form method="POST" action="../../../backend/controller/PeticionUsers.php?accion=registrarProducto">
+                <input type="hidden" name="usuario" value="<?= $user->getUsername()?>" />
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" value="" name="nombre" required>
 

@@ -39,4 +39,44 @@ class ControllerProducts{
         return $list;
     }
 
+    public function insertProducto(Producto $producto)
+    {
+        $sql = "INSERT INTO productos (nombre, descripcion, precio, unidades, id_categoria, usuario, ruta_imagen) 
+                VALUES (?,?,?,?,?,?,?)";
+        $stmt = $this->conn->prepare($sql);
+
+        if ($stmt) {
+            $nombre = $producto->getNombre();
+            $descripcion = $producto->getDescripcion();
+            $precio = $producto->getPrecio();
+            $unidades = $producto->getUnidades();
+            $categoria = $producto->getCategoria();
+            $usuario = $producto->getUsuario();
+            $ruta = $producto->getRuta();
+            $stmt->bind_param("ssdiiss",
+                $nombre,
+                $descripcion,
+                $precio,
+                $unidades,
+                $categoria,
+                $usuario,
+                $ruta
+            );
+            $success = $stmt->execute();
+            $stmt->close();
+
+            if ($success) {
+                $message = "Se registró correctamente el usuario.";
+                echo "<script type='text/javascript'>alert('$message');</script>";
+                //echo "<script type='text/javascript'>window.location.href='../../frontend/vista/cliente/ProductosPublicados.php';</script>";
+                //header("Location: ../../index.php");
+                exit();
+            } else {
+                throw new Exception("Error al insertar el usuario: " . $this->conn->error);
+            }
+        } else {
+            throw new Exception("Error preparando la consulta: " . $this->conn->error);
+        }
+    }
+
 }

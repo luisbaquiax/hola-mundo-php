@@ -6,11 +6,10 @@
             <li><a href="RegistroProducto.php">Registrar producto</a></li>
             <li><a href="ProductosPublicados.php">Productos</a></li>
             <li class="dropdown">
-                <a href="#services" class="dropbtn">Services</a>
+                <a href="#services" class="dropbtn">Reporte</a>
                 <div class="dropdown-content">
-                    <a href="#service1">Service 1</a>
-                    <a href="#service2">Service 2</a>
-                    <a href="#service3">Service 3</a>
+                    <a href="#service1">Productos vendidos</a>
+                    <a href="#service2">Productos mas vendidos</a>
                 </div>
             </li>
             <li><a href="#contact">Contact</a></li>
