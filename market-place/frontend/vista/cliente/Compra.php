@@ -1,4 +1,25 @@
 <?php
+require_once "../../../backend/controller/ControllerProducts.php";
+require_once __DIR__ .'/../../../backend/objects/Producto.php';
+require_once "../../../backend/objects/Usuario.php";
+
+session_start();
+$controllerProducto = new ControllerProducts();
+
+$producto = isset($_SESSION['vendiendo']) ? unserialize($_SESSION['vendiendo']) : $producto = new Producto(0,'','','','','','','');
+if ($producto && is_object($producto)) {
+    unset($_SESSION['vendiendo']);
+}
+
+$user = isset($_SESSION['user']) ? unserialize($_SESSION['user']) : new Usuario("", "", "", "", "", "", "", "");
+if ($user && is_object($user)) {
+    $username = $user->getUsername();
+    $list = $controllerProducto->getProductosByUser($username, ControllerProducts::GET_PRODUCTS_NOMBRE);
+    //unset($_SESSION['user']);
+}
+if ($user->getUsername() == '') {
+    header('Location: ../../index.php');
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -15,6 +36,32 @@
 <?php
 include "Menu.php";
 ?>
+<section>
+    <div class="card">
+        <div class="card-header">
+            <h1 class="text-center">Compra de producto</h1>
+        </div>
+       <div class="card-body">
+           <form action="../../../backend/controller/PeticionUsers.php" method="POST">
+               <button type="submit" class="btn-warning"><strong> Finalizar compra </strong></button>
+               <div class="input-group">
+                   <input type="hidden" name="id_producto" value="<?= $producto->getId(); ?>" />
+                   <input type="hidden" name="usuario" value="<?= $user->getUsername(); ?>" />
 
+                   <label for="nombre" class="login-label">Nombre del producto:</label>
+                   <input type="text" id="nombre" class="login-input" name="nombre" value="<?= $producto->getNombre(); ?>" readonly>
+               </div>
+               <div class="input-group">
+                   <label for="cantidad" class="login-label">Cantidad:</label>
+                   <input type="number" class="login-input" id="cantidad" name="cantidad" required min="1" max="<?= $producto->getUnidades(); ?>">
+               </div>
+           </form>
+           Detalle: <?= $producto->getDescripcion() ?>,
+           Precio: <?= $producto->getPrecio() ?>,
+           Unidades: <?= $producto->getUnidades() ?>,
+           Categoría: <?= $producto->getCategoria() ?>
+       </div>
+    </div>
+</section>
 </body>
 </html>

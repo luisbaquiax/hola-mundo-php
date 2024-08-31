@@ -52,7 +52,7 @@ include "Menu.php";
                     <td><?= $producto->getId() ?></td>
                     <td><?= $producto->getNombre() ?></td>
                     <td><?= $producto->getDescripcion() ?></td>
-                    <td><?= $producto->getPrecio() ?></td>
+                    <td>Q.<?= $producto->getPrecio() ?></td>
                     <td><?= $producto->getUnidades() ?></td>
                     <td><?= $producto->getCategoria() ?></td>
                     <td>

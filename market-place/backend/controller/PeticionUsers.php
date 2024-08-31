@@ -72,6 +72,11 @@ switch ($method) {
                 header('Location: ../../frontend/vista/cliente/RegisterProducts.php');
                 break;
             case 'comprar';
+                $idProducto = $_GET['id'];
+                $actualizar = $controllerProducto->getProductoById($idProducto);
+                session_start();
+                $_SESSION['vendiendo'] = serialize($actualizar);
+                header('Location: ../../frontend/vista/cliente/Compra.php');
                 break;
         }
         break;

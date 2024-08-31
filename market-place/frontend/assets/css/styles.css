@@ -67,6 +67,10 @@ colorea don fondo blanco gris las filas pares
     background-color: orange;
 }
 
+.btn-warning:hover{
+    background-color: #f5a142;
+}
+
 .mt-10{
     margin-top: 10px;
 }

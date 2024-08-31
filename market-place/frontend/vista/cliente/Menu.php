@@ -9,7 +9,6 @@
                 <a href="#services" class="dropbtn">Reporte</a>
                 <div class="dropdown-content">
                     <a href="#service1">Productos vendidos</a>
-                    <a href="#service2">Productos mas vendidos</a>
                 </div>
             </li>
             <li><a href="Tienda.php">Tienda</a></li>
