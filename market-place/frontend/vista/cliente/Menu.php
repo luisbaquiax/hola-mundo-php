@@ -8,7 +8,7 @@
             <li class="dropdown">
                 <a href="#services" class="dropbtn">Reporte</a>
                 <div class="dropdown-content">
-                    <a href="#service1">Productos vendidos</a>
+                    <a href="Ventas.php">Ventas</a>
                 </div>
             </li>
             <li><a href="Tienda.php">Tienda</a></li>

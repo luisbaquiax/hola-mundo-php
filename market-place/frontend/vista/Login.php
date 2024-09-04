@@ -26,7 +26,7 @@
         </div>
         <button type="submit">Iniciar Sesión</button>
     </form>
-    <p>¿No tienes una cuenta? <a href="cliente/RegisterUsers.php">Crea una aquí</a></p>
+    <p>¿No tienes una cuenta? <a href="cliente/CrearCuenta.php">Crea una aquí</a></p>
 </div>
 </body>
 </html>

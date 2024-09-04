@@ -39,11 +39,11 @@ include "Menu.php";
 <section>
     <div class="card">
         <div class="card-header">
-            <h1 class="text-center">Compra de producto</h1>
+            <h1 class="text-center">Comprar de producto</h1>
         </div>
        <div class="card-body">
-           <form action="../../../backend/controller/PeticionUsers.php" method="POST">
-               <button type="submit" class="btn-warning"><strong> Finalizar compra </strong></button>
+           <form action="../../../backend/controller/PeticionUsers.php?accion=procesoCompra" method="POST">
+               <button type="submit" class="btn-green-dark"><strong> Finalizar compra </strong></button>
                <div class="input-group">
                    <input type="hidden" name="id_producto" value="<?= $producto->getId(); ?>" />
                    <input type="hidden" name="usuario" value="<?= $user->getUsername(); ?>" />
@@ -53,7 +53,7 @@ include "Menu.php";
                </div>
                <div class="input-group">
                    <label for="cantidad" class="login-label">Cantidad:</label>
-                   <input type="number" class="login-input" id="cantidad" name="cantidad" required min="1" max="<?= $producto->getUnidades(); ?>">
+                   <input type="number" class="login-input" id="cantidad" name="cantidad" value="1" required min="1" max="<?= $producto->getUnidades(); ?>">
                </div>
            </form>
            Detalle: <?= $producto->getDescripcion() ?>,

@@ -28,6 +28,7 @@ if ($user->getUsername() == '') {
 
     <link rel="stylesheet" href="../../assets/css/navbar.css">
     <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/table.css">
 </head>
 <body>
 <?php
@@ -61,6 +62,10 @@ include "Menu.php";
                     <td>
                         <a href="../../../backend/controller/PeticionUsers.php?accion=actualizarProducto&&id=<?= $producto->getId() ?>"
                            class="btn btn-primary">Editar
+                        </a>
+                        <a href="../../../backend/controller/PeticionUsers.php?accion=eliminarProducto&&id=<?= $producto->getId() ?>"
+                           class="btn btn-red"
+                           style="margin-left: 5px" >Eliminar
                         </a>
                     </td>
                 </tr>

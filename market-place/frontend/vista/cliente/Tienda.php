@@ -35,7 +35,7 @@ if ($user->getUsername() == '') {
     <?php include ("Menu.php");?>
     <section>
         <h1>TIENDA DE PRODUCTOS</h1>
-        <div class="container-component" style="">
+        <div class="container-component">
 
                 <?php foreach ($list as $producto): ?>
 

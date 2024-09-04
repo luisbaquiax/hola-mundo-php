@@ -40,6 +40,10 @@ colorea don fondo blanco gris las filas pares
     background-color: #216ce7;
 }
 
+.btn-green-dark{
+    background-color: #319138;
+}
+
 .btn-green{
     background-color: #5cb85c;
 }

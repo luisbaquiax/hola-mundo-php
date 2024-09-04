@@ -1,11 +1,12 @@
 <?php
-//require_once "C:\Users\Usuario\Desktop\Teoria de sistemas 1\hola-mundo-php\market-place\backend\coneccion\Coneccion.php";
 require_once __DIR__ . '/../coneccion/Coneccion.php';
-//require_once "C:\Users\Usuario\Desktop\Teoria de sistemas 1\hola-mundo-php\market-place\backend\objects\Producto.php";
 require_once __DIR__ . '/../objects/Producto.php';
 
 class ControllerProducts
 {
+    /**
+     * INSERT PRODUCT INTO TABLE productos
+     */
     const GET_PRODUCTS_BY_USER = "SELECT * FROM productos WHERE usuario = ?";
     const GET_PRODUCTS_BY_USER_MEJORADO = "
          select p.id, p.nombre, p.descripcion, p.precio, p.unidades, c.nombre as id_categoria, p.usuario, p.ruta_imagen

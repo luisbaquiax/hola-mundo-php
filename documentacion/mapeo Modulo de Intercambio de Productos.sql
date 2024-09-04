@@ -41,7 +41,7 @@ CREATE TABLE ventas(
     fecha DATE NOT NULL,
     id_pago INT NOT NULL,
     usuario_comprador VARCHAR(45) NOT NULL,
-    usuario_vendedoR VARCHAR(45) NOT NULL,
+    usuario_vendedor VARCHAR(45) NOT NULL,
     estado VARCHAR(10) NOT NULL,
     FOREIGN KEY(id_pago) REFERENCES tipo_pago(id),
     FOREIGN KEY(usuario_comprador) REFERENCES usuarios(username) ON UPDATE CASCADE,
