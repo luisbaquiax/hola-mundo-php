@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.textContent = 'Ocultar detalle';
             } else {
                 tableContainer.style.display = 'none';
-                button.textContent = 'Ver detalle';
+                button.textContent = 'Ver detalle';qq
             }
         });
     });

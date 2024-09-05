@@ -66,7 +66,7 @@ class ControllerVenta
         }
     }
 
-    function getMisVentas($username)
+    public function getMisVentas($username)
     {
         $list = array();
 

@@ -23,7 +23,7 @@ if ($user->getUsername() == '') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Intercambios S.A.</title>
+    <title>Tienda</title>
 
     <link rel="stylesheet" href="../../assets/css/formulario.css">
 

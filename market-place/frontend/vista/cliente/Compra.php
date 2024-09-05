@@ -51,17 +51,23 @@ include "Menu.php";
                    <label for="nombre" class="login-label">Nombre del producto:</label>
                    <input type="text" id="nombre" class="login-input" name="nombre" value="<?= $producto->getNombre(); ?>" readonly>
                </div>
+               <input type="hidden" id="precioProducto" name="precioProducto" value="<?= $producto->getPrecio()?>" />
                <div class="input-group">
                    <label for="cantidad" class="login-label">Cantidad:</label>
                    <input type="number" class="login-input" id="cantidad" name="cantidad" value="1" required min="1" max="<?= $producto->getUnidades(); ?>">
                </div>
            </form>
-           Detalle: <?= $producto->getDescripcion() ?>,
-           Precio: <?= $producto->getPrecio() ?>,
-           Unidades: <?= $producto->getUnidades() ?>,
-           Categoría: <?= $producto->getCategoria() ?>
+           <h4>
+               Detalle: <?= $producto->getDescripcion() ?>,
+               Precio: <?= 'Q.'.$producto->getPrecio() ?>,
+               Unidades: <?= $producto->getUnidades() ?>,
+               Categoría: <?= $producto->getCategoria() ?>
+               <hr>
+               Cantidad a pagar: <span id="totalPagar"><?= 'Q.'.$producto->getPrecio() ?></span>
+           </h4>
        </div>
     </div>
 </section>
+<script src="../../assets/js/updateTotalPago.js"></script>
 </body>
 </html>

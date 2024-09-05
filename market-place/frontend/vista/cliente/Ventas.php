@@ -22,7 +22,7 @@ if ($user->getUsername() == '') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Producto</title>
+    <title>Mis ventas</title>
     <link rel="stylesheet" href="../../assets/css/formulario.css">
 
     <link rel="stylesheet" href="../../assets/css/navbar.css">
@@ -69,7 +69,7 @@ include "Menu.php";
                                         <td><?= $numeral; ?></td>
                                         <td><?= $producto->getNombre(); ?></td>
                                         <td><?= $producto->getCategoria(); ?></td>
-                                        <td><?= $producto->getPrecio(); ?></td>
+                                        <td><?= 'Q.'.$producto->getPrecio(); ?></td>
                                         <td><?= $producto->getUnidades(); ?></td>
                                         <td><?= 'Q.'.$producto->getUsuario(); ?></td>
                                     </tr>

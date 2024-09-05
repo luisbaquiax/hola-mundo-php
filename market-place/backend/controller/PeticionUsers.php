@@ -25,8 +25,8 @@ switch ($method) {
                     $_SESSION['user'] = serialize($user);
                     header('Location: ../../frontend/vista/cliente/ProductosPublicados.php');
                 } else {
-
-                    header('Location: ../../frontend/vista/Login.php');
+                    echo "<script type='text/javascript'>alert('Credenciales incorrectas!!! Por favor intente de nuevo.');</script>";
+                    echo "<script type='text/javascript'>window.location.href='../../frontend/vista/Login.php';</script>";
                 }
                 break;
             case 'registrarProducto':
@@ -48,6 +48,8 @@ switch ($method) {
                         $controllerProducto->insertProducto($producto);
                     } else {
                         $controllerProducto->updateProducto($producto);
+                        echo "<script type='text/javascript'>alert('Producto actualizado correctamente.');</script>";
+                        echo "<script type='text/javascript'>window.location.href='../../frontend/vista/cliente/ProductosPublicados.php';</script>";
                     }
                 } catch (Exception $e) {
                     echo "<script type='text/javascript'>console.log('$e');</script>";
@@ -77,7 +79,7 @@ switch ($method) {
                             $producto->setUnidades($producto->getUnidades() - $cantidad);
                             $controllerProducto->updateProducto($producto);
                             //enviar mensaje
-                            $message = "Se realizó correctamente la compra.";
+                            $message = "Se realizó correctamente la compra. Se le estará llamando para coordinar la entrega.";
                             echo "<script type='text/javascript'>alert('$message');</script>";
                             echo "<script type='text/javascript'>window.location.href='../../frontend/vista/cliente/Tienda.php';</script>";
                         } catch (Exception $e) {
@@ -127,6 +129,14 @@ switch ($method) {
                 session_start();
                 $_SESSION['producto'] = serialize($actualizar);
                 header('Location: ../../frontend/vista/cliente/RegisterProducts.php');
+                break;
+            case 'eliminarProducto':
+                $idProducto = $_GET['id'];
+                try {
+                    $controllerProducto->delete($idProducto);
+                } catch (Exception $e) {
+                    echo "MENSAJE DEL SERVIDOR: ".$e;
+                }
                 break;
             case 'comprar';
                 $idProducto = $_GET['id'];

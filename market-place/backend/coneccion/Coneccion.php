@@ -1,8 +1,8 @@
 <?php
 class Coneccion{
     private $servername = "localhost";
-    private $username = "root";
-    private $password = "@luis.baquiax95";
+    private $username = "admin";
+    private $password = "intercambios";
     private $dbname = "intercambio";
 
     private $conn;
