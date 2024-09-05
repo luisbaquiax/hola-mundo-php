@@ -49,7 +49,7 @@ include "Menu.php";
                     <td><?= $venta->getFecha() ?></td>
                     <td><?= $venta->getEstado(); ?></td>
                     <td>
-                        <button class="toggle-button" data-index="<?= $index ?>">Ver detalle</button>
+                        <button class="show-btn" data-index="<?= $index ?>">Ver detalle</button>
                         <div class="table-container" id="tableContainer<?= $index ?>" style="display: none;">
                             <table id="tables">
                                 <thead>
@@ -84,7 +84,6 @@ include "Menu.php";
                                     <td>TOTAL</td>
                                     <td><?= 'Q.'.$total; ?></td>
                                 </tr>
-
                                 </tbody>
                             </table>
                         </div>

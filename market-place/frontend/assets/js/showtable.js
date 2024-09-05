@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Obtiene los botones
-    const toggleButtons = document.querySelectorAll('.toggle-button');
+    const toggleButtons = document.querySelectorAll('.show-btn');
 
     toggleButtons.forEach(button => {
         button.addEventListener('click', () => {
